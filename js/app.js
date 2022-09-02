@@ -28,8 +28,7 @@ const displayNewsCard = (newsBox) => {
     const newsCard = document.getElementById('news-card')
     newsCard.textContent = ''
 
-    const newsModal = document.getElementById('news-modal')
-    newsModal.textContent = ''
+
 
     newsBox.forEach(news => {
         const newsDiv = document.createElement('div')
@@ -46,22 +45,38 @@ const displayNewsCard = (newsBox) => {
                     </div>
                     <div class="d-flex align-items-center">
                     <i class="fa-regular fa-eye"></i> 
-                    <p>${news.total_view}</p>
+                    <p>${news.total_view ? news.total_view : 'No view'}</p>
                     </div>
                 </div>
                 </div>
-                <button type="button" class="btn btn-info m-4 " data-bs-toggle="modal" data-bs-target="#exampleModal">Show Detail</button>
+                <button type="button" onclick="newsDsetail('${news._id}')" class="btn btn-info m-4 " data-bs-toggle="modal" data-bs-target="#exampleModal">Show Detail</button>
 
         </div>
         `
 
 
         newsCard.appendChild(newsDiv)
-        console.log(news)
+        // console.log(news)
 
     });
 }
-const newDsetail = async (id) => {
+const newsDsetail = async (news_id) => {
+    const urlModal = `https://openapi.programming-hero.com/api/news/${news_id}`
+    const res = await fetch(urlModal)
+    const data = await res.json()
+    displayModal(data.data[0])
+
+}
+const displayModal = (modal) => {
+    const newsModal = document.getElementById('news-modal')
+    const newsModalTitle = document.getElementById('exampleModalLabelId')
+    console.log(modal);
+    newsModalTitle.innerText = `${modal.title}`
+    newsModal.innerHTML = `
+    <img src="${modal.image_url}" class="img-fluid" alt="">
+    <p>${modal.details.length > 150 ? modal.details.slice(0, 150) + '...' : modal.details}</p>
+
+    `
 
 }
 
