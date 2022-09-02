@@ -9,6 +9,11 @@ const displayElement = (categorys) => {
     const clickElement = document.getElementById('click-element')
     categorys.forEach(category => {
         console.log(category)
+        const categoryP = document.createElement('p')
+        categoryP.innerHTML = `
+        <p onclick="">${category.category_name}</p>
+        `
+        clickElement.appendChild(categoryP)
     });
 }
 
