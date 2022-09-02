@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>bd News24.com</title>
+    <!-- font script -->
+    <script src="https://kit.fontawesome.com/614acbf332.js" crossorigin="anonymous"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
@@ -14,7 +17,7 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg bg-light border-bottom border-dark">
             <div class="container-fluid">
-                <a class="navbar-brand fs-1 " href="#">bd News24</a>
+                <a class="navbar-brand fs-1 " href="#"> bd News24</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -25,7 +28,7 @@
                             <a class="nav-link active" aria-current="page" href="#">News</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Blog</a>
+                            <a class="nav-link" href="#"> Blog</a>
                         </li>
 
                     </ul>
@@ -34,10 +37,40 @@
         </nav>
     </header>
     <main>
-        <div id="click-element" class="d-flex justify-content-evenly mt-2">
+        <div id="click-element" class="d-flex   justify-content-evenly flex-sm-row-reverse mt-2">
 
 
         </div>
+
+        <section>
+            <div id="news-card" class="row row-cols-1 row-cols-md-2 g-4">
+
+            </div>
+        </section>
+        <section>
+            <!-- Button trigger modal -->
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div id="news-modal" class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
 
