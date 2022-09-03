@@ -18,7 +18,7 @@ const displayElement = (categorys) => {
         const categoryP = document.createElement('p')
         categoryP.classList.add('col')
         categoryP.innerHTML = `
-        <p  onclick="loadNewsCard('${category.category_id}')">${category.category_name}</p>
+        <p  onclick="loadNewsCard('${category.category_id}'), toggleSpinner(true)">${category.category_name}</p>
         `
         clickElement.appendChild(categoryP)
 
@@ -86,6 +86,7 @@ const displayNewsCard = (newsBox) => {
 
 
     });
+    toggleSpinner(false)
 }
 const newsDsetail = async (news_id) => {
     const urlModal = `https://openapi.programming-hero.com/api/news/${news_id}`
@@ -108,6 +109,16 @@ const displayModal = (modal) => {
     </div>
     `
 
+}
+
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if (isLoading) {
+        loaderSection.classList.remove('d-none')
+    }
+    else {
+        loaderSection.classList.add('d-none');
+    }
 }
 
 
