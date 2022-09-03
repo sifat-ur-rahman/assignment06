@@ -16,8 +16,9 @@ const displayElement = (categorys) => {
     categorys.forEach(category => {
         // console.log(category)
         const categoryP = document.createElement('p')
+        categoryP.classList.add('col')
         categoryP.innerHTML = `
-        <p onclick="loadNewsCard('${category.category_id}')">${category.category_name}</p>
+        <p  onclick="loadNewsCard('${category.category_id}')">${category.category_name}</p>
         `
         clickElement.appendChild(categoryP)
 
