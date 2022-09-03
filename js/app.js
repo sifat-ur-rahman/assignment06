@@ -34,7 +34,8 @@ const displayNewsCard = (newsBox) => {
     const newsCard = document.getElementById('news-card')
     newsCard.textContent = ''
 
-    console.log(newsBox)
+    // newsArray.sort(function (a, b) { return b - a })
+    // console.log(newsBox)
     const foundItems = document.getElementById('found-items')
     foundItems.innerHTML = newsBox.length
     const noNews = document.getElementById('no-found-massege')
@@ -44,9 +45,12 @@ const displayNewsCard = (newsBox) => {
     else {
         noNews.classList.add('d-none')
     }
+    console.log(newsBox.total_view);
 
+    newsBox.sort((a, b) => { return b.total_view - a.total_view })
     newsBox.forEach(news => {
         const newsDiv = document.createElement('div')
+
         newsDiv.classList.add('col')
         newsDiv.innerHTML = `
         <div class="card h-100 shadow">
