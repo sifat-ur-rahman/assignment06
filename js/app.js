@@ -1,8 +1,14 @@
 const loadData = async () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`
-    const res = await fetch(url)
-    const data = await res.json()
-    displayElement(data.data.news_category)
+    try {
+        const res = await fetch(url)
+        const data = await res.json()
+        displayElement(data.data.news_category)
+
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 
 const displayElement = (categorys) => {
@@ -28,7 +34,14 @@ const displayNewsCard = (newsBox) => {
     const newsCard = document.getElementById('news-card')
     newsCard.textContent = ''
 
-
+    console.log(newsBox)
+    const noNews = document.getElementById('no-found-massege')
+    if (newsBox.length === 0) {
+        noNews.classList.remove('d-none')
+    }
+    else {
+        noNews.classList.add('d-none')
+    }
 
     newsBox.forEach(news => {
         const newsDiv = document.createElement('div')
@@ -41,7 +54,7 @@ const displayNewsCard = (newsBox) => {
                 <p class="card-text">${news.details.length > 150 ? news.details.slice(0, 150) + '...' : news.details}</p>
                 <div class="d-flex justify-content-between">
                     <div>
-                    <img class="w-25 h-auto d-inline-block" src="${news.author.img}" alt="">  <p class="d-inline-block">Name: ${news.author.name ? news.author.name : 'No Outhor'}</p>
+                    <img class="w-25 h-auto d-inline-block rounded-circle" src="${news.author.img}" alt="">  <p class="d-inline-block">Name: ${news.author.name ? news.author.name : 'No Outhor'}</p>
                     </div>
                     <div class="d-flex align-items-center">
                     <i class="fa-regular fa-eye"></i> 
@@ -56,7 +69,7 @@ const displayNewsCard = (newsBox) => {
 
 
         newsCard.appendChild(newsDiv)
-        // console.log(news)
+
 
     });
 }
