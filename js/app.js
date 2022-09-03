@@ -49,7 +49,7 @@ const displayNewsCard = (newsBox) => {
         const newsDiv = document.createElement('div')
         newsDiv.classList.add('col')
         newsDiv.innerHTML = `
-        <div class="card h-100">
+        <div class="card h-100 shadow">
             <img src="${news.image_url}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${news.title}</h5>
