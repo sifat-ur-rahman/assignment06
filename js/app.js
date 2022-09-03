@@ -35,6 +35,8 @@ const displayNewsCard = (newsBox) => {
     newsCard.textContent = ''
 
     console.log(newsBox)
+    const foundItems = document.getElementById('found-items')
+    foundItems.innerHTML = newsBox.length
     const noNews = document.getElementById('no-found-massege')
     if (newsBox.length === 0) {
         noNews.classList.remove('d-none')
