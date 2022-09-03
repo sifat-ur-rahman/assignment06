@@ -18,7 +18,7 @@ const displayElement = (categorys) => {
         const categoryP = document.createElement('p')
         categoryP.classList.add('col')
         categoryP.innerHTML = `
-        <p  onclick="loadNewsCard('${category.category_id}'), toggleSpinner(true)">${category.category_name}</p>
+        <p style="cursor:pointer;" onclick="loadNewsCard('${category.category_id}'), toggleSpinner(true)">${category.category_name}</p>
         `
         clickElement.appendChild(categoryP)
 
