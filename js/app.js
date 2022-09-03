@@ -27,9 +27,16 @@ const displayElement = (categorys) => {
 }
 const loadNewsCard = async (category_id) => {
     const urlId = ` https://openapi.programming-hero.com/api/news/category/${category_id}`
-    const res = await fetch(urlId)
-    const data = await res.json()
-    displayNewsCard(data.data)
+    try {
+        const res = await fetch(urlId)
+        const data = await res.json()
+        displayNewsCard(data.data)
+
+    }
+    catch (error) {
+        console.log(error);
+    }
+
 }
 const displayNewsCard = (newsBox) => {
     const newsCard = document.getElementById('news-card')
@@ -95,7 +102,10 @@ const displayModal = (modal) => {
     newsModal.innerHTML = `
     <img src="${modal.image_url}" class="img-fluid" alt="">
     <p>${modal.details.length > 150 ? modal.details.slice(0, 150) + '...' : modal.details}</p>
-
+    <div class="d-flex justify-content-evenly">
+    <p>Author Name: ${modal.author.name ? modal.author.name : 'No Outhor'}</p>
+    <p>View: ${modal.total_view ? modal.total_view : 'No view'}</p>
+    </div>
     `
 
 }
